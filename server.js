@@ -1,10 +1,10 @@
 const express = require('express')
 const cmd = require('node-cmd')
 const crypto = require('crypto')
-const bodyParser = require('body-parser')
+const axios = require('axios')
 
 const app = express()
-app.use(bodyParser.json())
+app.use(express.json())
 
 const verifySignature = (req, res, next) => {
   const payload = JSON.stringify(req.body)
