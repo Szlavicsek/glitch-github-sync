@@ -23,6 +23,7 @@ const verifySignature = (req, res, next) => {
 
 // Github webhook listener
 app.post('/git', verifySignature, (req, res) => {
+  console.log('git request arrived')
   if (req.headers['x-github-event'] == 'push') {
     cmd.get('bash git.sh', (err, data) => {
       if (err) return console.log(err);
